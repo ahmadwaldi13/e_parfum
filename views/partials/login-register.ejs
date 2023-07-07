@@ -1,0 +1,85 @@
+      <!-- Modal Login -->
+      <div id="SignIn" class="modal fading">
+        <div class="modal-dialog modal-login">
+          <div class="modal-content">
+            <div class="modal-body" id="modal-body-login">
+            <div class="modal-header">
+              <h4 class="modal-title">Login</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+              <form onsubmit="return false">
+                <div class="group">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" class="control" id="email-login" placeholder="email" name="email" required />
+                </div>
+  
+                <div class="group">
+                  <i class="fa fa-key"></i>
+                  <input type="password" class="control" id="password-login" placeholder="password" name="password" required />
+                </div>
+  
+                <div class="group">
+                  <span id="loader-btn-login" class="spinner-border d-none spinner-border-sm"role="status"></span>
+                  <input type="submit" class="submit submit-primary submit-lg" onclick="login()" value="Login" />
+                </div>
+              </form>
+            </div>
+  
+            <div class="modal-footer">
+              forgot password? <a href="#">here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Login -->
+
+      <!-- Modal Register -->
+      <div id="SignUp" class="modal fading">
+        <div class="modal-dialog modal-register">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Register</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+  
+            <div class="modal-body" id="modal-body-register">
+              <form onsubmit="return false">
+                <div class="group">
+                  <i class="fa fa-user"></i>
+                  <input type="text" class="control" id="username" placeholder="username" name="username" required />
+                </div>
+  
+                <div class="group">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" class="control" id="email-register" placeholder="email" name="email" required />
+                </div>
+  
+                <div class="group">
+                  <i class="fas fa-phone"></i>
+                  <input type="text" class="control" id="phone_number" placeholder="phone number" name="phone_number" required />
+                </div>
+  
+                <div class="group">
+                  <i class="fa fa-key"></i>
+                  <input type="password" class="control" id="password-register" placeholder="password" name="password" required />
+                </div>
+  
+                <div class="group">
+                  <i class="fa fa-key"></i>
+                  <input type="password" class="control" id="cofirm_password" placeholder="confirm password" name="confirm_password" required />
+                </div>
+  
+                <div class="group">
+                  <span id="loader-btn" class="spinner-border d-none spinner-border-sm"role="status"></span>
+                  <input type="submit" class="submit submit-primary submit-lg" onclick="register()" value="Register" />
+                </div>
+              </form>
+            </div>
+  
+            <div class="modal-footer">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End register -->

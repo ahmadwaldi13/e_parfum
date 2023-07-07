@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ecedee;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    color: #333;
+  }
+
+  p {
+    color: #777;
+    margin-bottom: 20px;
+  }
+
+  .verfy {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  .verfy i {
+      color: green;
+  }

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- css only -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="/css/checkout.css">
+        <!-- javascript bundle with popper -->
+        <title>Eparfum</title>
+    </head>
+<body>
+  
+  <%- include('../partials/navbar.ejs') %>
+  <!-- Toast -->
+  <div class="toast align-items-center bg-danger d-none" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body text-white">
+        <i class="fas fa-exclamation-circle"></i> <span></span>
+      </div>
+      <button type="button" class="btn-close me-2 m-auto" onclick="removeToast()"></button>
+    </div>
+  </div>
+  <!-- End Toast -->
+  <!-- Modal Sucess -->
+  <section class="d-none">
+    <!-- <button class="show-modal">Show Modal</button> -->
+    <span class="overlay"></span>
+
+    <div class="modal-box">
+        <i class="fas fa-check-circle"></i>
+      <h2>Sucessfully</h2>
+      <h3>You sucessfully added order</h3>
+
+      <div class="buttons">
+        <button class="close-btn" onclick="toOrders()">Ok</button>
+      </div>
+    </div>
+  </section>
+  <!-- End Modal Success -->
+  <div class="container wrapper">
+    <div class="row cart-body">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 order-md-2 order-sm-2">
+            <!-- SHIPPING ADDRESS -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-map-marker-alt"></i> Shipping Address
+                </div>
+                <div class="card-body">
+                    <div class="card" style="border: none;">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b><%= userAddress.name %></b> | <%= userAddress.phone_number %> <br>
+                               <em> <%= userAddress.subdistrict %>, <%= userAddress.postal_code %>, <%= userAddress.city %>, <%= userAddress.province %></em> <br>
+                                <em><%= userAddress.detail_address %></em>
+                              </p>
+                            <a href="/user/address" class="btn btn-primary btn-sm" style="border-radius: 5px;"><i class="fas fa-exchange-alt"></i> Change</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END SHIPPING ADDRESS -->
+
+            <!-- SHIPPING METHOD -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-shipping-fast"></i> Shipping Method
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="form-check-shipping form-check-shipping-inline">
+                                <input class="form-check-shipping-input" type="radio" name="shipping_method" id="imageRadioShipping" value="JNT">
+                                <label class="form-check-shipping-label" for="imageRadioShipping">
+                                  <img src="/images/icons/jnt.png" alt="Image 1" onclick="shipping()" class="img-shipping-thumbnail">
+                                </label>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END SHIPPING METHOD -->
+
+            <!-- PAYMENT TYPE -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="far fa-money-bill-alt"></i> Payment Type
+                </div>
+                <div class="card-body">
+                        <h6><i class="far fa-university"></i><i class="fas fa-university"></i> Transfer Bank: </h6>
+                        <div class="form-check-payment form-check-payment-inline mt-2">
+                            <input class="form-check-payment-input" type="radio" name="payment_method" id="imageRadioPayment1" value="bca">
+                            <label class="form-check-payment-label" for="imageRadioPayment1">
+                                <img src="/images/icons/bca.png" alt="Image 1" class="img-payment-thumbnail">
+                            </label>
+                        </div>
+                        <div class="form-check-payment form-check-payment-inline">
+                            <input class="form-check-payment-input" type="radio" name="payment_method" id="imageRadioPayment2" value="bri">
+                            <label class="form-check-payment-label" for="imageRadioPayment2">
+                                <img src="/images/icons/bri.png" alt="Image 2" class="img-payment-thumbnail">
+                            </label>
+                        </div>
+                        <div class="form-check-payment form-check-payment-inline">
+                            <input class="form-check-payment-input" type="radio" name="payment_method" id="imageRadioPayment3" value="bni">
+                            <label class="form-check-payment-label" for="imageRadioPayment3">
+                                <img src="/images/icons/bni.png" alt="Image 3" class="img-payment-thumbnail">
+                            </label>
+                        </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+            <!-- END PAYMENT TYPE -->
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 order-lg-last order-md-last order-sm-last">
+            <!-- REVIEW ORDER -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-eye"></i> Review Order
+                    <div class="float-end"></div>
+                </div>
+                <div class="card-body">
+                    <% cartItemUser.forEach(item => { %>
+                        <div class="row mb-3">
+                            <div class="col-sm-3 col-3">
+                                <img class="img-fluid" src="<%= item.product_item.product_image %>" />
+                            </div>
+                            <div class="col-sm-6 col-6">
+                                <div class="row cart-item">
+                                    <div class="col-12"><%= item.product_item.name %></div>
+                                    <div class="col-12"><small>Quantity: <span><%= item.quantity %></span></small></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-3 text-end">
+                                <h6><span class="price"><%= item.total_price.toLocaleString("id-ID", { style: "currency", currency: "IDR" }) %></span></h6>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <hr />
+                        </div>
+                    <% }) %>
+                    <div class="row cart-item">
+                        <div class="col-8">Subtotal</div>
+                        <div class="col-4 text-end"><h6><span class="subtotal"><%= subtotal.toLocaleString("id-ID", { style: "currency", currency: "IDR" }) %></span></h6></div>
+                    </div>
+                    <div class="row cart-item">
+                        <div class="col-8">Shipping</div>
+                        <div class="col-4 text-end"><h6><span class="shipping">-</span></h6></div>
+                    </div>
+                    <div class="row cart-item">
+                        <div class="col-8">Promo</div>
+                        <div class="col-4 text-end"><h6><span class="promo">-</span></h6></div>
+                    </div>
+                    <div class="row cart-item">
+                        <div class="col-8">Order Total</div>
+                        <div class="col-4 text-end"><h6><span class="total_price"><%= subtotal.toLocaleString("id-ID", { style: "currency", currency: "IDR" }) %></span></h6></div>
+                    </div>
+                    <div class="mb-3">
+                        <hr />
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-success btn-submit-fix" id="btn-order" onclick="order(<%= JSON.stringify(userAddress) %>, <%= JSON.stringify(cartItemUser) %>)" style="border-radius: 5px;"><span id="loader-btn-order" class="spinner-border spinner-border-sm d-none"role="status"></span>  Place Order </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END REVIEW ORDER -->
+        </div>
+        
+    </div>
+</div>
+  <%- include('../partials/footer.ejs')  %>
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/checkout.js"></script>
+</body>
+</html>
+
+
+

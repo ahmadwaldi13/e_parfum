@@ -1,0 +1,339 @@
+body{
+    background-color: #ecedee;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   
+   }
+   .footer-items h5{
+       color: white;
+       font-size: 1rem;
+   }
+   .footer-items ul{
+       list-style: none;
+       padding: 0;
+       font-size: 0.8rem;
+   }
+   .footer-items a{
+       color:#ccc;
+       text-decoration: none;
+   }
+   .footer-items a:hover{
+       text-decoration: underline;
+   }
+   
+   /* NAVBAR */
+.main-navbar{
+    border-bottom: 1px solid #ccc;
+}
+.main-navbar .top-navbar{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.main-navbar .top-navbar .brand-name{
+    color: #fff;
+}
+.main-navbar .top-navbar .nav-link{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+.main-navbar .top-navbar .dropdown-menu{
+    padding: 0px 0px;
+    border-radius: 0px;
+}
+.main-navbar .top-navbar .dropdown-menu .dropdown-item{
+    padding: 8px 16px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+}
+.main-navbar .top-navbar .dropdown-menu .dropdown-item i{
+    width: 20px;
+    text-align: center;
+    color: #18191b;
+    font-size: 14px;
+}
+.main-navbar .navbar{
+    padding: 0px;
+    background-color: #ddd;
+}
+.main-navbar .navbar .nav-item .nav-link{
+    padding: 8px 20px;
+    color: #000;
+    font-size: 15px;
+}
+  
+@media only screen and (max-width: 600px) {
+    .main-navbar .top-navbar .nav-link{
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}
+/* END NAVBAR */
+  .wrapper{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.btn-submit-fix{
+    width:100%;
+}
+.img-fluid {
+    height: 90px;
+}
+/* 
+SHIPPING METHOD
+*/
+.form-check-shipping-label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+.form-check-shipping-label img {
+    width: 100px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-check-shipping-inline {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.form-check-shipping-input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* END SHIPPING METHOD */
+
+/* PAYMENT METHOD */
+.form-check-payment-label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+.form-check-payment-label img {
+    width: 100px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-check-payment-inline {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.form-check-payment-input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.form-check-payment-input[type="radio"]:checked ~ .form-check-payment-label img {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+    /* END PAYMENT METHOD */
+    
+/** MEDIA QUERIES **/
+ @media only screen and (max-width: 989px){
+    .wrapper{
+    margin-top: 30px;
+    }
+    .form-check-payment-label img {
+        width: 80px;
+        height: 25px;
+    }
+        .form-check-shipping-label img {
+        width: 80px;
+        height: 25px;
+    }
+    .price {
+        font-size: 10px;
+    }
+    .subtotal {
+        font-size: 10px;
+    }
+    .shipping {
+        font-size: 10px;
+    }
+    .promo {
+        font-size: 10px;
+    }
+    .total_price {
+        font-size: 10px;
+    }
+    .cart-item {
+        font-size: 10px;
+    }
+    .img-fluid {
+        height: 80px;
+    }
+}
+
+@media only screen and (max-width: 764px){
+    .wrapper{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    }
+    .price {
+        font-size: 10px;
+    }
+    .cart-item {
+        font-size: 10px;
+    }
+    .img-fluid {
+        height: 60px;
+    }
+}
+
+@media only screen and (max-width: 586px){
+    
+    .price {
+        font-size: 12px;
+    }
+    .subtotal {
+        font-size: 12px;
+    }
+    .shipping {
+        font-size: 12px;
+    }
+    .promo {
+        font-size: 12px;
+    }
+    .total_price {
+        font-size: 12px;
+    }
+    .cart-item {
+        font-size: 12px;
+    }
+    .img-fluid {
+        height: 50px;
+    }
+}
+@media only screen and (max-width: 486px){
+    .wrapper{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .form-check-payment-label img {
+        width: 70px;
+        height: 25px;
+    }
+        .form-check-shipping-label img {
+        width: 70px;
+        height: 25px;
+    }
+    .price {
+        font-size: 10px;
+    }
+    .subtotal {
+        font-size: 10px;
+    }
+    .shipping {
+        font-size: 10px;
+    }
+    .promo {
+        font-size: 10px;
+    }
+    .total_price {
+        font-size: 10px;
+    }
+    .cart-item {
+        font-size: 10px;
+    }
+    .img-fluid {
+        height: 40px;
+    }
+}
+/* Modal Success */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+section {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+  }
+  .buttons .close-btn {
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    border: none;
+    background: #19e223;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button.show-modal,
+  .modal-box {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  section.active .show-modal {
+    display: none;
+  }
+  .overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+  }
+  section.active .overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 380px;
+    width: 100%;
+    padding: 30px 20px;
+    border-radius: 24px;
+    background-color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%) scale(1.2);
+    font-family: "Poppins", sans-serif;
+  }
+  section.active .modal-box {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .modal-box i {
+    font-size: 70px;
+    color: #19e223;
+  }
+  .modal-box h2 {
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #333;
+  }
+  .modal-box h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    text-align: center;
+  }
+  .modal-box .buttons {
+    margin-top: 25px;
+  }
+  .modal-box button {
+    font-size: 20px;
+    width: 100px;
+    padding: 6px 12px;
+    margin: 0 10px;
+  }
+/* End Modal Success */

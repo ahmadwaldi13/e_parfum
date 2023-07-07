@@ -1,0 +1,145 @@
+body{
+    background-color:#ecedee;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   
+   }
+   .product-item{
+       max-width: 300px;
+       margin: auto;
+       margin-bottom: 2rem;
+       cursor: pointer;
+   }
+  
+   .product-item:hover{
+       transform: scale(1.1);
+   }
+   .slide-img {
+    width: 300px; 
+    height: 200px;
+    object-fit: cover;
+  }
+   .footer-items h5{
+       color: white;
+       font-size: 1rem;
+   }
+   .footer-items ul{
+       list-style: none;
+       padding: 0;
+       font-size: 0.8rem;
+   }
+   .footer-items a{
+       color:#ccc;
+       text-decoration: none;
+   }
+   .footer-items a:hover{
+       text-decoration: underline;
+   }
+   
+   /* NAVBAR */
+   .main-navbar{
+    border-bottom: 1px solid #ccc;
+  }
+  .main-navbar .top-navbar{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .main-navbar .top-navbar .brand-name{
+    color: #fff;
+  }
+  .main-navbar .top-navbar .nav-link{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .main-navbar .top-navbar .dropdown-menu{
+    padding: 0px 0px;
+    border-radius: 0px;
+  }
+  .main-navbar .top-navbar .dropdown-menu .dropdown-item{
+    padding: 8px 16px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+  }
+  .main-navbar .top-navbar .dropdown-menu .dropdown-item i{
+    width: 20px;
+    text-align: center;
+    color: #18191b;
+    font-size: 14px;
+  }
+  .main-navbar .navbar{
+    padding: 0px;
+    background-color: #ddd;
+  }
+  .main-navbar .navbar .nav-item .nav-link{
+    padding: 8px 20px;
+    color: #000;
+    font-size: 15px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .main-navbar .top-navbar .nav-link{
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+  }
+  /* END NAVBAR */
+
+    /* CSS PROFILE */
+  .img-account-profile {
+    height: 10rem;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+}
+.card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}
+.card .card-header {
+    font-weight: 500;
+}
+.card-header:first-child {
+    border-radius: 0.35rem 0.35rem 0 0;
+}
+.card-header {
+    padding: 1rem 1.35rem;
+    margin-bottom: 0;
+    background-color: rgba(33, 40, 50, 0.03);
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+}
+.input-form, .dataTable-input {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #69707a;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c5ccd6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.nav-borders .nav-link.active {
+    color: #0061f2;
+    border-bottom-color: #0061f2;
+}
+.nav-borders .nav-link {
+    color: #69707a;
+    border-bottom-width: 0.125rem;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+/* END CSS PROFILE */

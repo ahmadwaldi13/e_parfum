@@ -1,0 +1,565 @@
+body{
+    background-color: #ecedee;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   
+   }
+   .footer-items h5{
+       color: white;
+       font-size: 1rem;
+   }
+   .footer-items ul{
+       list-style: none;
+       padding: 0;
+       font-size: 0.8rem;
+   }
+   .footer-items a{
+       color:#ccc;
+       text-decoration: none;
+   }
+   .footer-items a:hover{
+       text-decoration: underline;
+   }
+   
+   /* NAVBAR */
+   .main-navbar{
+    border-bottom: 1px solid #ccc;
+  }
+  .main-navbar .top-navbar{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .main-navbar .top-navbar .brand-name{
+    color: #fff;
+  }
+  .main-navbar .top-navbar .nav-link{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .main-navbar .top-navbar .dropdown-menu{
+    padding: 0px 0px;
+    border-radius: 0px;
+  }
+  .main-navbar .top-navbar .dropdown-menu .dropdown-item{
+    padding: 8px 16px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+  }
+  .main-navbar .top-navbar .dropdown-menu .dropdown-item i{
+    width: 20px;
+    text-align: center;
+    color: #18191b;
+    font-size: 14px;
+  }
+  .main-navbar .navbar{
+    padding: 0px;
+    background-color: #ddd;
+  }
+  .main-navbar .navbar .nav-item .nav-link{
+    padding: 8px 20px;
+    color: #000;
+    font-size: 15px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .main-navbar .top-navbar .nav-link{
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+  }
+  /* END NAVBAR */
+ 
+ /* Modal Success */
+ @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+ section {
+     position: fixed;
+     height: 100%;
+     width: 100%;
+     z-index: 9999;
+   }
+   .buttons .close-btn {
+     font-size: 18px;
+     font-weight: 400;
+     color: #fff;
+     border: none;
+     background: #19e223;
+     border-radius: 6px;
+     cursor: pointer;
+   }
+   button.show-modal,
+   .modal-box {
+     position: fixed;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+   }
+   section.active .show-modal {
+     display: none;
+   }
+   .overlay {
+     position: fixed;
+     height: 100%;
+     width: 100%;
+     background: rgba(0, 0, 0, 0.3);
+     opacity: 0;
+     pointer-events: none;
+   }
+   section.active .overlay {
+     opacity: 1;
+     pointer-events: auto;
+   }
+   .modal-box {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     max-width: 380px;
+     width: 100%;
+     padding: 30px 20px;
+     border-radius: 24px;
+     background-color: #fff;
+     opacity: 0;
+     pointer-events: none;
+     transition: all 0.3s ease;
+     transform: translate(-50%, -50%) scale(1.2);
+     font-family: "Poppins", sans-serif;
+   }
+   section.active .modal-box {
+     opacity: 1;
+     pointer-events: auto;
+     transform: translate(-50%, -50%) scale(1);
+   }
+   .modal-box i {
+     font-size: 70px;
+     color: #19e223;
+   }
+   .modal-box h2 {
+     margin-top: 20px;
+     font-size: 25px;
+     font-weight: 500;
+     color: #333;
+   }
+   .modal-box h3 {
+     font-size: 16px;
+     font-weight: 400;
+     color: #333;
+     text-align: center;
+   }
+   .modal-box .buttons {
+     margin-top: 25px;
+   }
+   .modal-box button {
+     font-size: 20px;
+     width: 100px;
+     padding: 6px 12px;
+     margin: 0 10px;
+   }
+ /* End Modal Success */
+ .myOrdersMenu {
+    font-family: Arial, Helvetica, sans-serif;
+ }
+ .tab-content {
+   font-family: Arial, Helvetica, sans-serif;
+ }
+ .card {
+   margin-bottom: 20px;
+   border: 1px solid #e2e8f0;
+   border-radius: 5px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .card-header {
+   background-color: #f8f9fa;
+   font-weight: bold;
+   padding: 10px;
+   border-bottom: 1px solid #e2e8f0;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+ }
+ 
+ .card-body {
+   padding: 20px;
+ }
+ .card-text {
+   font-size: 14px;
+   margin-bottom: 5px;
+ }
+ 
+ /* CSS Button stle*/
+ .btn-order-success {
+   display: inline-block;
+   outline: none;
+   cursor: pointer;
+   font-size: 12px;
+   line-height: 1;
+   transition-property: background-color,border-color,color,box-shadow,filter;
+   transition-duration: .3s;
+   border: 1px transparent;
+   letter-spacing: 0.2px;
+   white-space: normal;
+   font-weight: 300;
+   text-align: center;
+   color: #fff;
+   background-color: #15883e;
+ 
+   
+ }
+ .btn-order-success:hover{
+       background-color: #1db954;
+       color: #fff;
+ }
+ .btn-order-detail {
+   display: inline-block;
+   outline: none;
+   cursor: pointer;
+   font-size: 12px;
+   line-height: 1;
+   transition-property: background-color,border-color,color,box-shadow,filter;
+   transition-duration: .3s;
+   border: 1px transparent;
+   letter-spacing: 0.2px;
+   white-space: normal;
+   font-weight: 300;
+   text-align: center;
+   color: #fff;
+   background-color: #555555;
+ 
+   
+ }
+ .btn-order-detail:hover{
+       background-color: #7e7c7c;
+       color: #fff;
+ }
+ .btn-order-cancel {
+   display: inline-block;
+   outline: none;
+   cursor: pointer;
+   font-size: 12px;
+   line-height: 1;
+   transition-property: background-color,border-color,color,box-shadow,filter;
+   transition-duration: .3s;
+   border: 1px transparent;
+   letter-spacing: 0.2px;
+   white-space: normal;
+   font-weight: 300;
+   text-align: center;
+   color: #fff;
+   background-color: #e22c2c;
+ 
+   
+ }
+ .btn-order-cancel:hover{
+       background-color: #fd3d3d ;
+       color: #fff;
+   }
+   .btn-order-pay {
+   display: inline-block;
+   outline: none;
+   cursor: pointer;
+   font-size: 12px;
+   line-height: 1;
+   transition-property: background-color,border-color,color,box-shadow,filter;
+   transition-duration: .3s;
+   border: 1px transparent;
+   letter-spacing: 0.2px;
+   white-space: normal;
+   font-weight: 300;
+   text-align: center;
+   color: #fff;
+   background-color: #0e3edd;
+ 
+   
+ }
+ .btn-order-pay:hover{
+       background-color: #4978fa ;
+       color: #fff;
+ }
+ 
+ 
+ /* Modal Pay Now */
+ .modal-body {
+     background-color: #fff;
+     border-color: #fff;
+     border-radius: 10px;
+ 
+ }
+ 
+ .close-modal {
+     color: #000;
+     cursor: pointer;
+ }
+ 
+ .close-modal:hover {
+     color: #000;
+ }
+ 
+ .theme-color{
+ 
+     color: #000;
+ }
+ hr.new1 {
+     border-top: 2px dashed #fff;
+     margin: 0.4rem 0;
+ }
+ 
+ .btn-modal {
+     color: #fff;
+     background-color: #198754;
+     border-color: #198754;
+     padding: 12px;
+     padding-right: 30px;
+     padding-left: 30px;
+     border-radius: 5px;
+     font-size: 17px;
+ }
+ 
+ .btn-modal:hover {
+     color: #fff;
+     background-color: #0e663d;
+     border-color: #0e663d;
+     padding: 12px;
+     padding-right: 30px;
+     padding-left: 30px;
+     border-radius: 5px;
+     font-size: 17px;
+ }
+ /* account number bca */
+ .account-number-bca-input {
+   border: none;
+   outline: none;
+   font-size: 1rem;
+   font-weight: 600;
+   color: #000;
+   width: 100%;
+   min-width: unset;
+   background-color: transparent;
+   border-color: transparent;
+   margin: 0;
+ }
+ .account-number-bca {
+   border: 1px solid rgba(0, 0, 0, 0.137);
+   padding: 0.5rem;
+   outline: none;
+   width: 100%;
+   min-width: unset;
+   border-radius: 5px;
+   background-color: rgba(221, 228, 236, 0.301);
+   border-color: rgba(221, 228, 236, 0.459);
+   margin: 2vh 0;
+   overflow: hidden;
+ }
+ .account-number-bca .col-2,
+ .input-acc {
+   display: flex;
+   align-items: center;
+   text-align: center;
+   padding: 0 1vh;
+ }
+ /* account number bni */
+ .account-number-bni-input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  width: 100%;
+  min-width: unset;
+  background-color: transparent;
+  border-color: transparent;
+  margin: 0;
+}
+.account-number-bni {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 0.5rem;
+  outline: none;
+  width: 100%;
+  min-width: unset;
+  border-radius: 5px;
+  background-color: rgba(221, 228, 236, 0.301);
+  border-color: rgba(221, 228, 236, 0.459);
+  margin: 2vh 0;
+  overflow: hidden;
+}
+.account-number-bni .col-2,
+.input-acc {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 0 1vh;
+}
+/* account number bri */
+.account-number-bri-input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  width: 100%;
+  min-width: unset;
+  background-color: transparent;
+  border-color: transparent;
+  margin: 0;
+}
+.account-number-bri {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 0.5rem;
+  outline: none;
+  width: 100%;
+  min-width: unset;
+  border-radius: 5px;
+  background-color: rgba(221, 228, 236, 0.301);
+  border-color: rgba(221, 228, 236, 0.459);
+  margin: 2vh 0;
+  overflow: hidden;
+}
+.account-number-bri .col-2,
+.input-acc {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 0 1vh;
+}
+ /* End Modal Pay Now */
+ 
+ /* End Button Style */
+ @media (max-width: 575.98px) {
+     .btn-order-cancel {
+         font-size: 11px;
+         padding: 5px 10px;
+     }
+     .btn-order-success {
+         font-size: 11px;
+         padding: 5px 10px;
+     }
+     .btn-order-pay {
+         font-size: 11px;
+         padding: 5px 10px;
+     }
+     .btn-order-detail {
+         font-size: 11px;
+         padding: 5px 10px;
+     }
+ }
+ 
+ @media (min-width: 576px) and (max-width: 767.98px) {
+     .btn-order-cancel {
+         font-size: 12px;
+         padding: 5px 10px;
+     }
+     .btn-order-success {
+         font-size: 12px;
+         padding: 5px 10px;
+     }
+     .btn-order-pay {
+         font-size: 12px;
+         padding: 5px 10px;
+     }
+ }
+ 
+ @media (max-width: 989px) {
+     .menu-order {
+     margin-bottom: 10px;
+     }
+ }
+
+ /* Modal Order Detail */
+ #order-heading {
+    background-color: #f8f9fa;
+    position: relative;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    max-width: 800px;
+    padding-top: 20px;
+    margin: 30px auto 0px;
+    font-family: 'Roboto', sans-serif
+}
+#order-heading .text-uppercase {
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: 600
+}
+#order-heading .h4 {
+    font-weight: 600
+}
+#order-heading .h4+div p {
+    font-size: 0.8rem;
+    color: #777
+}
+.wrapper {
+    padding: 0px 50px 50px;
+    max-width: 800px;
+    margin: 0px auto 40px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px
+}
+.table th {
+    border-top: none;
+   
+}
+.table thead tr.text-uppercase th {
+    font-size: 0.8rem;
+    padding-left: 0px;
+    padding-right: 0px
+}
+.table tbody tr th,
+.table tbody tr td {
+    font-size: 0.9rem;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+}
+.table-responsive {
+    overflow-y: auto;
+}
+.price {
+    color: #5cb99a;
+    font-weight: 700
+}
+.address-order-detail {
+    font-size: 0.9rem;
+    margin: 0
+}
+.row {
+    margin: 0px
+}
+.ml-auto label {
+    margin-bottom: 0;
+    padding: 0;
+    font-weight: 900
+}
+.subscriptions {
+    border: 1px solid #ddd;
+    border-left: 5px solid #ffa500;
+    padding: 10px
+}
+.subscriptions div {
+    font-size: 0.9rem
+}
+.img-method{
+    margin-left: 2px;
+    width: 40px;
+    height: 30px;
+    object-fit: contain;
+  }
+@media(max-width: 425px) {
+    .wrapper {
+        padding: 20px
+    }
+    body {
+        font-size: 0.85rem
+    }
+    .subscriptions div {
+        padding-left: 5px
+    }
+    img+label {
+        font-size: 0.75rem
+    }
+}
+.close-order-detail{
+    margin-right: 20px;
+    font-size: large;
+    cursor: pointer;
+}
+ /* End Modal Order Detail */

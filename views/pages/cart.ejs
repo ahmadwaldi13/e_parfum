@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- css only -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+      <link rel="stylesheet" href="/css/cart.css">
+        <!-- javascript bundle with popper -->
+        <title>Cart</title>
+    </head>
+<body>
+  <%- include('../partials/navbar.ejs') %>
+  <div class="toast align-items-center bg-danger d-none" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body text-white">
+        <i class="fas fa-exclamation-circle"></i> Select the product you want to buy.
+      </div>
+      <button type="button" class="btn-close me-2 m-auto" onclick="removeToast()"></button>
+    </div>
+  </div>
+  <% if (product_cart.length > 0) { %>
+    <div class="container padding-bottom-3x mb-1 mt-5">
+      <div class="table-responsive shopping-cart">
+        <table class="table">
+          <thead> 
+            <tr>
+              <th></th>
+              <th>Product Name</th>
+              <th class="text-center">Quantity</th>
+              <th class="text-center">Price</th>
+              <th class="text-center">Amount</th>
+              <th class="text-center"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% product_cart.forEach((prodCart, i) => { %>
+              <tr>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="product<%= i %>" onchange="toggleChecklist(<%= prodCart.cart_items[0]?.id%>, <%= i %>)">
+                    <label class="form-check-label" for="product<%= i %>"></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="product-item">
+                    <a class="product-thumb" href="#"><img src="<%= prodCart.cart_items[0]?.product_item.product_image %>" alt="Product"></a>
+                    <div class="product-info">
+                      <h4 class="product-title"><a href="/product/<%= prodCart.cart_items[0]?.product_item.product_id %>"><%= prodCart.cart_items[0]?.product_item.name %></a></h4>
+                      <span><em>Size:</em> <%= prodCart.cart_items[0]?.product_item.product_variation_options[0].value %>
+                      </span>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-center">
+                    <div class="input-group quantity-container">
+                        <button class="btn btn-outline-secondary minusQty" onclick="minusQty(<%= prodCart.cart_items[0]?.id %>, <%= i %>)" type="submit" id="minusBtn<%= i %>"><i class="fas fa-minus"></i></button>
+                        <input type="text" class="form-control quantityInput" id="quantityInput<%= i %>" value="<%= prodCart.cart_items[0]?.quantity %>" readonly>
+                        <button class="btn btn-outline-secondary plusQty" onclick="plusQty(<%= prodCart.cart_items[0]?.id %>, <%= i %>)" type="button" id="plusBtn<%= i %>"><i class="fas fa-plus"></i></button>
+                    </div>
+                </td>
+                <td class="text-center text-lg text-medium"><%= prodCart.cart_items[0]?.product_item.price.toLocaleString("id-ID", { style: "currency", currency: "IDR" }) %></td>
+                <td class="text-center text-lg text-medium" id="product-amount<%= i %>"><%= prodCart.cart_items[0]?.total_price.toLocaleString("id-ID", { style: "currency", currency: "IDR" }) %></td>
+                <td class="text-center">
+                  <form method="POST" action="/user/cart/remove/<%= prodCart.cart_items[0]?.id %>?_method=DELETE">
+                      <button class="btn"><i class="fas fa-trash-alt icon-remove"></i></button>
+                  </form>
+                </td>
+              </tr>
+            <% }) %>
+            <!-- other rows -->
+          </tbody>
+        </table>
+      </div>
+      <div class="shopping-cart-footer">
+        <div class="column text-lg">
+          <b>Total Price:</b> <span class="text-medium"><b id="bold-total-price">0</b></span>
+        </div>
+      </div>
+      <div class="shopping-cart-footer">
+        <div class="column">
+          <a class="btn btn-secondary" id="btn-checkout" onclick="checkoutBtn()"><i class="fas fa-money-bill"></i> Checkout</a>
+        </div>
+      </div>
+    </div>
+  <% } else {%>
+    <!-- Empty Cart -->
+    <%- include('../partials/empty-cart.ejs') %>
+    <!-- End Empty Cart -->
+  <% } %>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs')  %>
+    <!-- End Footer -->
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/cart.js"></script>
+</body>
+</html>
